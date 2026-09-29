@@ -12,12 +12,12 @@ export const profile = {
   tagline:
     'Mechanical Engineer turned Software Developer, passionate about building backend systems, APIs, and scalable applications.',
 
-  email: 'your-email@example.com', // TODO: replace
+  email: 'omakargaikwad336@gmail.com', // TODO: replace
   links: {
-    github: 'https://github.com/YOUR-USERNAME', // TODO: replace
-    linkedin: 'https://www.linkedin.com/in/YOUR-USERNAME', // TODO: replace
+    github: 'https://github.com/OmakarGiakwad96', // TODO: replace
+    linkedin: 'https://www.linkedin.com/in/omkar-gaikwad-47040b263', // TODO: replace
   },
-  siteUrl: 'https://your-domain.example', // TODO: replace (used for SEO / Open Graph URLs)
+  siteUrl: 'https://omkarsanjaygaikwad.online', // TODO: replace (used for SEO / Open Graph URLs)
 
   resumeUrl: '/resume/Omkar-Sanjay-Gaikwad-Resume.pdf',
   resumeFile: 'resume/Omkar-Sanjay-Gaikwad-Resume.pdf', // path inside /public

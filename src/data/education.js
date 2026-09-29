@@ -3,7 +3,7 @@ export const education = [
     id: 'pgdac',
     program: 'PG-DAC (Post Graduate Diploma in Advanced Computing)',
     institution: 'CDAC / Sunbeam Institute',
-    period: '2025 – 2026',
+    period: 'Feb 2026 – Aug 2026',
   },
   {
     id: 'be',
