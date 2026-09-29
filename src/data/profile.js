@@ -23,7 +23,7 @@ export const profile = {
   resumeFile: 'resume/Omkar-Sanjay-Gaikwad-Resume.pdf', // path inside /public
 
   seo: {
-    title: 'Omkar Sanjay Gaikwad — Aspiring Software Developer',
+    title: 'Omkar Sanjay Gaikwad',
     description:
       'Portfolio of Omkar Sanjay Gaikwad, a Mechanical Engineer turned software developer working with Java, Spring Boot, .NET, REST APIs, MySQL, microservices and DevOps.',
   },
