@@ -1,0 +1,6 @@
+<!-- Favicon placeholder: replace with your own mark if you like -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="4" fill="#0D0E10"/>
+  <rect x="4.5" y="4.5" width="23" height="23" rx="1.5" fill="none" stroke="#E8A33D" stroke-width="1.5"/>
+  <text x="16" y="20.5" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#E8A33D">OG</text>
+</svg>

@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Palette — "blueprint at night".
+ * Graphite base + one accent: drafting amber. Amber is the colour of
+ * annotations and safety markings on a shop floor, a quiet nod to the
+ * mechanical background, and it keeps AA contrast on the dark base
+ * without needing glow or gradients.
+ */
+:root {
+  --bg: 13 14 16;
+  --surface: 19 21 24;
+  --elevated: 27 29 33;
+  --line: 44 47 53;
+  --ink: 236 233 226;
+  --muted: 154 157 163;
+  --accent: 232 163 61;
+  --accent-ink: 22 15 4;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+  ::selection {
+    background: rgb(var(--accent) / 0.9);
+    color: rgb(var(--accent-ink));
+  }
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  #main:focus {
+    outline: none;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-container px-5 md:px-8;
+  }
+
+  .skip-link {
+    @apply fixed left-4 top-4 z-[200] -translate-y-24 rounded-sm bg-accent px-4 py-2 font-mono text-sm text-accent-ink transition-transform focus:translate-y-0;
+  }
+
+  /* Faint drafting grid behind the whole page */
+  .page-grid {
+    background-image:
+      linear-gradient(rgb(var(--line) / 0.28) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--line) / 0.28) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 85%);
+  }
+
+  /* Amber grid revealed only around the pointer (set by CustomCursor) */
+  .grid-reveal {
+    background-image:
+      linear-gradient(rgb(var(--accent) / 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--accent) / 0.22) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(180px circle at var(--mx, -999px) var(--my, -999px), #000, transparent 75%);
+  }
+  html:not(.has-custom-cursor) .grid-reveal {
+    display: none;
+  }
+
+  .caret {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    margin-left: 0.3em;
+    vertical-align: -0.18em;
+    background: rgb(var(--accent));
+    animation: blink 1.1s steps(1) infinite;
+  }
+
+  .marquee-track {
+    animation: marquee 45s linear infinite;
+  }
+
+  .flow-dash {
+    stroke-dasharray: 2 10;
+    animation: dash 1.1s linear infinite;
+  }
+
+  .spin-slow {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: spin 18s linear infinite;
+  }
+}
+
+/* Hide the native pointer only while the custom cursor is active */
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+html.has-custom-cursor :is(input, textarea) {
+  cursor: text !important;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+@keyframes dash {
+  to { stroke-dashoffset: -24; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
