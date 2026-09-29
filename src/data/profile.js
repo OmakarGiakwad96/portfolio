@@ -25,7 +25,7 @@ export const profile = {
   seo: {
     title: 'Omkar Sanjay Gaikwad',
     description:
-      'Portfolio of Omkar Sanjay Gaikwad, a Mechanical Engineer turned software developer working with Java, Spring Boot, .NET, REST APIs, MySQL, microservices and DevOps.',
+      'Portfolio of Omkar Sanjay Gaikwad, a Aspiring Software Developer.',
   },
 
   // About section story
