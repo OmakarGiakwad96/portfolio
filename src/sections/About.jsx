@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import SectionHeading from '@/components/SectionHeading';
 import Reveal from '@/components/Reveal';
 import Journey from '@/components/Journey';
@@ -18,19 +19,63 @@ export default function About() {
             ))}
           </div>
 
-          <Reveal delay={0.1}>
-            <dl className="rounded-md border border-line bg-surface/60">
-              <div className="border-b border-line px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-                spec.sheet
-              </div>
-              {profile.specs.map(({ label, value }) => (
-                <div key={label} className="grid grid-cols-[7rem_1fr] gap-4 border-b border-line/70 px-5 py-3.5 last:border-b-0">
-                  <dt className="font-mono text-xs uppercase tracking-wider text-muted">{label}</dt>
-                  <dd className="text-sm text-ink">{value}</dd>
+          <div className="space-y-6">
+            {/* Profile Photo */}
+            <Reveal delay={0.05}>
+              <div className="relative mx-auto w-fit">
+                {/* Decorative dot-grid behind photo */}
+                <div
+                  className="absolute -right-4 -top-4 h-32 w-32 opacity-20"
+                  aria-hidden="true"
+                  style={{
+                    backgroundImage: 'radial-gradient(rgb(var(--accent)) 1.2px, transparent 1.2px)',
+                    backgroundSize: '10px 10px',
+                  }}
+                />
+                {/* Decorative dot-grid bottom-left */}
+                <div
+                  className="absolute -bottom-4 -left-4 h-24 w-24 opacity-15"
+                  aria-hidden="true"
+                  style={{
+                    backgroundImage: 'radial-gradient(rgb(var(--accent)) 1.2px, transparent 1.2px)',
+                    backgroundSize: '10px 10px',
+                  }}
+                />
+                {/* Photo container */}
+                <div className="relative overflow-hidden rounded-xl border-2 border-accent/30 shadow-lg shadow-accent/5">
+                  <Image
+                    src="/profile.png"
+                    alt={`Photo of ${profile.name}`}
+                    width={360}
+                    height={420}
+                    className="h-auto w-full max-w-[360px] object-cover"
+                    priority
+                  />
+                  {/* Subtle gradient overlay at bottom */}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-bg/60 to-transparent" />
                 </div>
-              ))}
-            </dl>
-          </Reveal>
+                {/* Name tag below photo */}
+                <div className="mt-3 text-center font-mono text-xs tracking-wider text-muted">
+                  &lt;{profile.handle} /&gt;
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Spec Sheet */}
+            <Reveal delay={0.1}>
+              <dl className="rounded-md border border-line bg-surface/60">
+                <div className="border-b border-line px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                  spec.sheet
+                </div>
+                {profile.specs.map(({ label, value }) => (
+                  <div key={label} className="grid grid-cols-[7rem_1fr] gap-4 border-b border-line/70 px-5 py-3.5 last:border-b-0">
+                    <dt className="font-mono text-xs uppercase tracking-wider text-muted">{label}</dt>
+                    <dd className="text-sm text-ink">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+          </div>
         </div>
 
         <div className="mt-20">
